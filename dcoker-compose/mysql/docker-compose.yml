@@ -1,0 +1,18 @@
+version: "3"
+
+volumes:
+  dbdata:
+    driver: local
+
+services:
+  mysql:
+    image: mysql:8.0.25
+    container_name: Mysql_DB
+  enviroment:
+    MYSQL_USER: YOUR_USER
+    MYSQL_PASSWORD: YOUR_PASSWORD
+    MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD
+  volumes:
+    - dbdata:/var/lib/mysql
+  ports:
+    - "3306:3306"
