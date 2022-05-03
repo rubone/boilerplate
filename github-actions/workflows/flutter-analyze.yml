@@ -1,0 +1,18 @@
+name: Flutter Code Quality
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  flutter:
+    name: Check Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Flutter & Analyze
+        uses: subosito/flutter-action@v2
+      - run: flutter pub get
+      - run: flutter analyze
